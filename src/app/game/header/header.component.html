@@ -1,3 +1,8 @@
-<p>
-  Turn of {{ (_stateService.state$ | async).turn }}
-</p>
+<header>
+    <h3>
+        Welcome {{ (_stateService.state$ | async).player_name }}
+    </h3>
+    <h3>
+        Turn of {{ (_stateService.state$ | async).turn }}
+    </h3>
+</header>

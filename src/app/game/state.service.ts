@@ -5,7 +5,8 @@ export interface State {
     turn: string,
     values: string[][],
     numMovs: number,
-    gameOver: boolean
+    gameOver: boolean,
+    player_name: string
 }
 
 @Injectable({
@@ -24,7 +25,8 @@ export class StateService {
             ['-','-','-']
         ],
         numMovs: 0,
-        gameOver: false
+        gameOver: false,
+        player_name: ''
     });
   }
   
@@ -103,7 +105,8 @@ export class StateService {
             ['-','-','-']
         ],
         numMovs: 0,
-        gameOver: false
+        gameOver: false,
+        player_name: ''
     };
   }
 }

@@ -1,3 +1,19 @@
-<app-header></app-header>
-<app-board></app-board>
-<app-footer></app-footer>
+<div class="loader" *ngIf="_status=='fetching'"></div>
+<div *ngIf="_status=='success' || _status=='newGame'">
+    
+    <form *ngIf=" (_stateService.state$ | async).player_name=='' ">
+        <label>Introduce Player Name</label>
+        <input [(ngModel)]="_player_name" type="text" name="_player_name">
+        <input (click)="_handleSubmitClick()" type="submit" value="submit">
+    </form>
+    
+    <div *ngIf=" (_stateService.state$ | async).player_name!='' ">
+        <app-header></app-header>
+        <app-board></app-board>
+        <app-footer></app-footer>
+    </div>
+    
+</div>
+<div *ngIf="_status!='fetching' && _status!='success'  && _status!='newGame'">
+    There is an error in the backend comunication. Error: {{_status}}
+</div>
